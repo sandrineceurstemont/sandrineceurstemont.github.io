@@ -85,7 +85,7 @@
     </div>
 
     <input type="hidden" name="_subject" value="New message from CV site">
-    <input type="hidden" name="_redirect" value="https://sandrineceurstemont.com/contact-ok.html">
+    <!--<input type="hidden" name="_redirect" value="https://sandrineceurstemont.com/contact-ok.html">-->
 
       <button type="submit" id="submitBtn" class="submit-btn">
         Send
@@ -93,11 +93,43 @@
   </form>
 
 <script>
-function disableButton() {
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector(".contact-form");
   const btn = document.getElementById("submitBtn");
-  btn.disabled = true;
-  btn.textContent = "Sending...";
-}
+
+  function disableButton() {
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent default form submission
+    disableButton();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // redirect to your thank-you page
+        window.location.href = "https://sandrineceurstemont.github.io/contact-ok.html";
+      } else {
+        alert("Oops! There was a problem submitting your form. Please try again.");
+        btn.disabled = false;
+        btn.textContent = "Send";
+      }
+    })
+    .catch(() => {
+      alert("Oops! There was a problem submitting your form. Please try again.");
+      btn.disabled = false;
+      btn.textContent = "Send";
+    });
+  });
+});
 </script>
 
 <!--CONTACT FORM END -->
