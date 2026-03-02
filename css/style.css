@@ -1120,7 +1120,8 @@ h2 {
 
 /*** INDEX ***/
 h1.hero {
-    line-height: 1.1 !important; /* Name on the index page */
+  line-height: 1.1 !important; /* Name on the index page */
+  font-size: clamp(30px, 10vw, 60px) !important;
 }
 
 /*** WRITING ***/
