@@ -383,10 +383,6 @@ h2 {
   font-size: 2em;
 }
 
-h3 {
-  font-size: 1.6em;
-}
-
 h4 {
   font-size: 1.2em;
 }
@@ -1124,6 +1120,20 @@ h1.hero {
   font-size: clamp(30px, 10vw, 60px) !important;
 }
 
+h4.hero {
+  line-height: 1.1 !important;
+  font-size: 1.1em;
+  margin-bottom: 2em;
+  color: #646b69;
+}
+
+h4.hero1 {
+  line-height: 1.1 !important;
+  margin-bottom: 1.5em;
+  font-size: 1.1em;
+  color: var(--Sasa-1);
+}
+
 /*** WRITING ***/
 
 .grid_writing {
@@ -1449,6 +1459,12 @@ a:hover {
   opacity: 0;
 }
 
+/*** PRIVACY POLICY ****/
+
+h3 {
+  font-size: 1.2em;
+  margin-top: 1.5em;
+}
 
 html {
   scroll-behavior: smooth;
